@@ -30,8 +30,10 @@ exports.saveFavorites = function(req, res) {
 		"image": req.body.url
 	});
 
+	//save the model in teh database
 	newImage.save(callbackFunction);
 
+	//callback function that prints out errors and then redirects to home
 	function callbackFunction(err) {
 		err ? (console.log(err), res.redirect('/')) : res.redirect('/');
 	}
